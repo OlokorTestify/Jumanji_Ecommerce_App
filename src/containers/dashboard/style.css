@@ -1,0 +1,86 @@
+.main {
+    width: 80%;
+    margin-left: 230px;
+}
+
+.main .inputMain {
+    position: relative;
+    width: 60%;
+    margin: 4rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 8px 80px rgba(0, 0, 0, .06);
+    border-radius: 1rem;
+    padding: .7rem;
+}
+
+.main .button {
+    background: #fb4c47;
+    box-shadow: 0 8px 87px rgba(0, 0, 0, .1);
+    border-radius: 1rem;
+    border: none;
+    padding: .9rem 4rem;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+    transition: all .8s ease-in-out;
+}
+
+.main .input {
+    width: 80%;
+    padding: .5rem .75rem;
+    font-size: 18px;
+    color: #4b4f51;
+
+}
+
+.main .product_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.main .product-front img {
+    width: 100%;
+}
+
+.main .product_price {
+    color: #3db83a;
+}
+
+.main .make3D {
+    width: 23%;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: 100ms ease-out;
+    margin-bottom: 5rem;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.14);
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.main .make3D:hover {
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.54);
+}
+
+.main .make3D .shadow {
+    height: 20rem;
+}
+
+.main .make3D .shadow img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.main .stats {
+    padding-left: 1.3rem;
+}

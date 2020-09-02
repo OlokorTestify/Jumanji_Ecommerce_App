@@ -1,0 +1,41 @@
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
+    padding-left: 2.5rem;
+    padding-right: 5rem;
+}
+
+.navBar h1 {
+    cursor: pointer;
+}
+
+.nav-link-styles {
+    display: flex;
+    align-items: center;
+}
+
+.link-style {
+    text-decoration: none;
+    color: #000;
+    margin-right: 1.5rem;
+    cursor: pointer;
+}
+
+.nav-link-styles button {
+    border-radius: 10px;
+    background-color: #5ff7d2;
+    padding: 1rem 4rem;
+    color: #fff;
+    margin-left: 1rem;
+    text-align: center;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+}

@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Router, Route, Switch } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import Landing from "./landing";
+import NavBar from "./components/navbar/navBar";
+import Modal from "./components/Modal";
+import SignIn from "./components/Modal/SignIn";
+import "./App.css";
+import Secondary from "./containers/Secondary";
 
-function App() {
+const App = () => {
+  const history = createBrowserHistory();
+  const [modalOpen, setModalOpen] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar openModal={() => setModalOpen(true)} />
+      <Router history={history}>
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <>
+            <Route
+              path="/vehicles"
+              render={(props) => (
+                <>
+                  <Secondary {...props} />
+                </>
+              )}
+            />
+          </>
+        </Switch>
+      </Router>
+      <Modal isVisible={modalOpen} onClose={() => setModalOpen(false)}>
+        <SignIn />
+      </Modal>
+    </>
   );
-}
+};
 
 export default App;

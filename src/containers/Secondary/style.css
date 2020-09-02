@@ -1,0 +1,66 @@
+.secondary {
+    width: 95%;
+    margin-left: 3rem;
+    margin-top: 10rem;
+}
+
+.secondary .inputMain {
+    position: relative;
+    width: 60%;
+    margin: 4rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 8px 80px rgba(0, 0, 0, .06);
+    border-radius: 1rem;
+    padding: .7rem;
+}
+
+
+.secondary .button {
+    background: #fb4c47;
+    box-shadow: 0 8px 87px rgba(0, 0, 0, .1);
+    border-radius: 1rem;
+    border: none;
+    padding: .9rem 4rem;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+    transition: all .4s;
+}
+
+.secondary .input {
+    width: 80%;
+    padding: .5rem .75rem;
+    font-size: 18px;
+    color: #4b4f51;
+
+}
+
+.product_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.secondary .product-front img {
+    width: 100%;
+}
+
+.secondary .product-back {
+    display: none;
+    transform: rotateY(180deg);
+}
+
+.secondary .make3D {
+    width: 30%;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: 100ms ease-out;
+}

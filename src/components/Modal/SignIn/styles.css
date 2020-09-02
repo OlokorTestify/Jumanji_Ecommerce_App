@@ -1,0 +1,57 @@
+.button_sign {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.button_margin1 {
+    margin-top: 2rem;
+    margin-bottom: 1.4rem;
+}
+
+.button_margin3 {
+    margin-bottom: 2rem;
+}
+
+
+
+.button_google {
+    background: #ffffff;
+    box-shadow: 0 8px 87px rgba(0, 0, 0, .2);
+    border-radius: 1rem;
+    padding: .9rem 4rem;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+    transition: all .4s;
+    width: 100%;
+}
+
+.button_facebook {
+    background-color: #3b5998;
+    box-shadow: 0 8px 87px rgba(0, 0, 0, .2);
+    border-radius: 1rem;
+    padding: .9rem 3.2rem;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+    transition: all .4s;
+    width: 100%;
+}
+
+.button_email {
+    background-color: #3db83a;
+    box-shadow: 0 8px 87px rgba(0, 0, 0, .2);
+    border-radius: 1rem;
+    padding: .9rem 2rem;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%;
+    outline: none;
+    transition: all .4s;
+
+}
