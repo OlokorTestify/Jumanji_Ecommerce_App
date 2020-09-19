@@ -1,0 +1,251 @@
+body {
+    background: #eef2f4;
+}
+
+
+
+.dashboard-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10rem;
+    overflow: hidden;
+    background-color: #eef2f4;
+    margin-bottom: 3rem;
+}
+
+.dashboard-flex .item {
+    display: flex;
+    flex-direction: column;
+    background: #666;
+    padding: 1.5rem;
+    width: 60%;
+    background: #fff;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.14);
+    margin-right: 1rem;
+}
+
+.item img {
+    width: 100%;
+}
+
+.stat_container {
+    padding: 1rem;
+}
+
+.mainDiv {
+    background: #fff;
+}
+
+.seller-profile {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.profileImg {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 3rem;
+    margin: 0 auto;
+}
+
+.profileImg img {
+    width: 100%;
+    border-radius: 20%;
+    cursor: pointer;
+}
+
+.flex-card {
+    background: #fff;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.14);
+}
+
+.item_price {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    background: green;
+    font-size: 200%;
+}
+
+.flex-card .userName {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.phone {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+    margin: 0 auto;
+}
+
+.phone .itemPhone {
+    height: 3rem;
+    border-radius: 6px;
+    width: 90%;
+    font-weight: 400;
+    background: green;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, .17);
+    cursor: pointer;
+}
+
+.phoneButton {
+    height: 45px;
+    border-radius: 6px;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+    width: 20%;
+    background: green;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, .17);
+    cursor: pointer;
+}
+
+.message {
+    height: 3rem;
+    border-radius: 6px;
+    width: 90%;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, .17);
+    border: 1px solid green;
+    background: #ffffff;
+    color: green;
+    cursor: pointer;
+    transition: all 0.5s;
+
+}
+
+.message:hover {
+    background: green;
+    color: #ffffff;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.54);
+}
+
+.break {
+    border: none;
+    padding: 10px;
+    background: #eef2f4;
+}
+
+.safetyTips {
+    padding: 0.5rem 1rem;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.safetyTips h3 {
+    text-align: center;
+}
+
+.safetyTips ul {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+}
+
+.safetyTips ul li {
+    margin-bottom: 0.4rem;
+}
+
+.safetyTips .button {
+    border-radius: 4px;
+    color: #464b4f;
+    border: 1px solid #dfe0e2;
+    min-height: 28px;
+    outline: none;
+    text-decoration: none;
+    align-items: center;
+    cursor: pointer;
+    font-size: 10px;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    background: #ffffff;
+}
+
+.postAd {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+}
+
+.add {
+    height: 3rem;
+    border-radius: 6px;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+    width: 90%;
+    font-weight: 400;
+    background: green;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, .17);
+    cursor: pointer;
+}
+
+.statistics {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+
+.date {
+    margin-right: 2rem;
+}
+
+.specifications {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+
+.specifications p {
+    opacity: 0.4;
+    margin-top: -1rem;
+    font-size: 14px;
+}
+
+.make {
+    margin-right: 3rem;
+}
+
+.textArea {
+    border: 1px solid #dfe0e2;
+    border-radius: 10px;
+    width: 90%;
+    margin-left: 1.2rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+
+.textArea:focus {
+    outline: 1px solid green;
+    border-radius: 10px;
+}
+
+.phone .submitMessage {
+    border: 1px solid #fb4c47;
+    background: #fb4c47;
+    margin-left: 1.2rem;
+    height: 3rem;
+    border-radius: 6px;
+    width: 90%;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, .17);
+    cursor: pointer;
+}

@@ -55,3 +55,22 @@
     transition: all .4s;
 
 }
+
+.green {
+    color: #3db83a;
+    cursor: pointer;
+}
+
+.rules {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 1rem;
+}
+
+.rules input {
+    cursor: pointer;
+}
+
+.radio {
+    margin-left: 0.3rem;
+}

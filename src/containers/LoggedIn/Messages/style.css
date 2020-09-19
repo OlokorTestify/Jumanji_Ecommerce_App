@@ -1,0 +1,133 @@
+body {
+    background: #eef2f4;
+}
+
+
+
+.dashboard-message {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    padding-top: 7rem;
+    overflow: hidden;
+    background-color: #eef2f4;
+}
+
+.dashboard-message .item {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    width: 60%;
+    background: #fff;
+    height: 35rem;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.14);
+    margin-right: 5rem;
+    border-radius: 10px;
+}
+
+
+
+.item img {
+    width: 100%;
+}
+
+.stat_container {
+    padding: 1rem;
+}
+
+.mainDiv {
+    background: #fff;
+}
+
+.landing-sideBar {
+
+    display: flex;
+    flex-direction: column;
+    width: 21.5%;
+    background: #fff;
+    margin-left: 5rem;
+    box-shadow: 1px 1px 4px rgba(80, 114, 125, .4);
+    border-radius: 10px;
+    height: 40rem;
+    margin-right: 36px;
+}
+
+.profileImg {
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+    width: 40%;
+    border-radius: 20%;
+    cursor: pointer;
+}
+
+
+
+.messages-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    padding-left: 1rem;
+}
+
+.messages-box img {
+    width: 100%;
+}
+
+
+
+.header {
+    padding: 24px 8px 16px;
+    background-color: #fff;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.headerImg {
+    width: 96px;
+    height: 96px;
+    background-size: cover;
+    background-position: 50%;
+    border-radius: 50%;
+    margin: auto;
+    background-color: rgba(166, 184, 189, .5);
+    position: relative;
+}
+
+.userName {
+    display: block;
+    color: #303a4b;
+    font-size: 24px;
+    margin: 16px 0;
+
+}
+
+.fa-fa-message {
+    color: #303a4b;
+    font-size: 18px;
+    padding: 8px 8px 0;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eef2f4;
+    cursor: pointer;
+    color: #3db83a;
+}
+
+.message-image {
+    width: 10%;
+    min-width: 40px;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.messageText {
+    margin-left: 1rem;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsi
+}

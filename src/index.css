@@ -27,3 +27,11 @@ button {
   border: none;
   outline: none;
 }
+
+button {
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1rem;
+}

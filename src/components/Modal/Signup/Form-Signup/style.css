@@ -1,0 +1,93 @@
+.login_form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+}
+
+.login_form .input-field {
+    width: 100%;
+    margin: 0 0 24px;
+    text-align: left;
+    border: 1px solid #99b2bf;
+    border-radius: 4px;
+    min-height: 48px;
+    background: #ffffff;
+    text-align: left;
+    align-items: center;
+    letter-spacing: 0.1rem;
+    font-size: 13px;
+    padding-left: 1rem;
+}
+
+.login_form .forgot-password {
+    margin-top: -1rem;
+    text-align: right;
+    font-size: 12px;
+    color: green;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.login_form .form-button {
+    border-radius: 4px;
+    background-color: #5ff7d2;
+    padding: 1rem 4rem;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.login_form .button-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    padding-top: 0.7rem;
+    width: 100%;
+
+}
+
+.login_form .button-div .login {
+    background: #3b5998;
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+    width: 45%;
+    font-size: 1rem;
+    height: 3rem;
+}
+
+.login_form .button-div .forms-button {
+    border-radius: 4px;
+    color: #000000;
+    text-align: center;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+    width: 45%;
+    font-size: 1rem;
+    height: 3rem;
+    background-color: #fff;
+}
+
+
+.paragraph {
+    text-align: center;
+}
+
+
+.fa-register {
+    font-size: 12px;
+    text-align: center;
+}
+
+.fa-register span {
+    color: green;
+}
