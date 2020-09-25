@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
 import history from "./utils/history";
-import Landing from "./landing";
+import LandingPage from "./LandingPage";
 import NavBar from "./components/navbar/navBar";
 import Modal from "./components/Modal";
 import Login from "./components/Modal/LogIn";
 import Signup from "./components/Modal/Signup";
 import FormLogin from "./components/Modal/LogIn/FormLogin";
-import FormSignUp from "./components/Modal/Signup/Form-Signup";
-import Dasboardlanding from "././containers/Dashboard _Landing";
-import LoggedIn from "./containers/LoggedIn/Messages/index";
+import FormSignUp from "./components/Modal/Signup/FormSignup";
+import ProductDetail from "./containers/ProductDetails";
+import Dashboard from "./containers/Dashboard/Profile";
+import Category from "./containers/Category";
+import AddProduct from "./containers/Dashboard/Profile/AddProduct";
 import "./App.css";
-import Secondary from "./containers/Secondary";
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -30,31 +31,18 @@ const App = () => {
       <NavBar isLoggedIn={isLoggedIn} openModal={openModal} />
       <Router history={history}>
         <Switch>
-          <Route exact path="/" component={Landing} />
-
-          <Route
-            path="/vehicle"
-            render={(props) => (
-              <>
-                <Secondary {...props} />
-              </>
-            )}
-          />
-          <Route
-            path="/item"
-            render={(props) => (
-              <>
-                <Dasboardlanding {...props} />
-              </>
-            )}
-          />
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/vehicle" component={Category} />
+          <Route path="/item" component={ProductDetail} />
           <Route
             path="/profile"
-            render={(props) => (
-              <>
-                <LoggedIn {...props} />
-              </>
-            )}
+            render={() => (isLoggedIn ? <Dashboard /> : <Redirect to="/" />)}
+          />
+          <Route
+            path="/add_product"
+            setIsLoggedIn={setIsLoggedIn}
+            render={() => (isLoggedIn ? <AddProduct /> : <Redirect to="/" />)}
+          />
           />
         </Switch>
       </Router>

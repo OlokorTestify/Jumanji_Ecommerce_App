@@ -7,13 +7,18 @@
 
 .button_margin1 {
     margin-top: 2rem;
-    margin-bottom: 1.4rem;
+    margin-bottom: -0.1rem;
 }
 
 .button_margin3 {
     margin-bottom: 2rem;
 }
 
+.google_image {
+    width: 1rem;
+    margin-right: 1rem;
+    margin-bottom: -0.15em;
+}
 
 
 .button_google {
@@ -24,6 +29,8 @@
     color: #000000;
     cursor: pointer;
     font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
     outline: none;
     transition: all .4s;
     width: 100%;

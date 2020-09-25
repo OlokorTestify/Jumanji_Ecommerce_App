@@ -35,3 +35,8 @@ button {
 p {
   font-size: 1rem;
 }
+
+.error_message {
+  color: #fc199b;
+  font-size: 13px;
+}

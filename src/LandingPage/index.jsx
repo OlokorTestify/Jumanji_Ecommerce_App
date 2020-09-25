@@ -1,6 +1,6 @@
 import React from "react";
 import SideBar from "./components/sidebar/sideBar";
-import Dashboard from "../containers/dashboard/dashboard";
+import Landing from "../containers/Landing";
 
 const landingPage = () => {
   return (
@@ -9,7 +9,7 @@ const landingPage = () => {
         style={{ display: "flex", flexDirection: "row", marginTop: "5.37rem" }}
       >
         <SideBar />
-        <Dashboard />
+        <Landing />
       </div>
     </>
   );

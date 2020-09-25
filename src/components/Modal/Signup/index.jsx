@@ -1,4 +1,5 @@
 import React from "react";
+import GoogleButton from "../../GoogleButton";
 import "./style.css";
 
 const Signup = (props) => {
@@ -6,10 +7,7 @@ const Signup = (props) => {
     <>
       <div className="button_sign">
         <div className="button_margin1">
-          <button className="button_google">Sign up Via Google</button>
-        </div>
-        <div className="button_margins">
-          <button className="button_facebook">Sign up Via Facebook</button>
+          <GoogleButton mode={"Sign Up"} />
         </div>
         <div>
           <p>OR</p>
@@ -19,7 +17,7 @@ const Signup = (props) => {
             className="button_email"
             onClick={() => props.setModalState("form_signup")}
           >
-            Sign up Via Email or Phone
+            Sign Up Via Email or Phone
           </button>
         </div>
         <p>

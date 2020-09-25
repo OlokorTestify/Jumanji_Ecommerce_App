@@ -1,25 +1,18 @@
 .login_form {
     display: flex;
     flex-direction: column;
-    padding-top: 2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-bottom: 2rem;
+    padding: 2rem;
 }
 
-.login_form .input-field {
+.login_form input {
     width: 100%;
-    margin: 0 0 24px;
-    text-align: left;
     border: 1px solid #99b2bf;
     border-radius: 4px;
-    min-height: 48px;
+    padding: 1rem;
     background: #ffffff;
-    text-align: left;
-    align-items: center;
     letter-spacing: 0.1rem;
     font-size: 13px;
-    padding-left: 1rem;
+    margin-top: 1.5rem;
 }
 
 .login_form .forgot-password {
@@ -41,6 +34,7 @@
     cursor: pointer;
     width: 100%;
     font-size: 1rem;
+    margin-top: 2rem;
 }
 
 .login_form .button-div {
@@ -48,7 +42,6 @@
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
-    padding-top: 0.7rem;
     width: 100%;
 
 }

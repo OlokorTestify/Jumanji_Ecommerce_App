@@ -10,7 +10,7 @@ const NavBar = (props) => {
     history.push("/");
   };
   const handleChange = () => {
-    !props.isLoggedIn ? props.openModal("login") : history.push("/");
+    !props.isLoggedIn ? props.openModal("login") : history.push("/add_product");
   };
   return (
     <>

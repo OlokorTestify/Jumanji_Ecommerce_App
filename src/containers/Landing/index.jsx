@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Router, useHistory, Link } from "react-router-dom";
+
+import history from "../../utils/history";
 import Favorites from "../../assets/image/star.png";
 import NewFavorites from "../../assets/image/green-star.png";
 import "./style.css";
@@ -133,7 +134,7 @@ const data = [
   },
 ];
 
-const Dashboard = () => {
+const Landing = () => {
   const [clicked, setClicked] = useState(data.map((element) => false));
   const handleChange = (e, index) => {
     const newStatus = [...clicked];
@@ -142,7 +143,6 @@ const Dashboard = () => {
     e.stopPropagation();
   };
 
-  const history = useHistory();
   const handleClick = () => {
     history.push("/item");
   };
@@ -157,33 +157,31 @@ const Dashboard = () => {
         {data.map((item, index) => {
           return (
             <>
-              <Router history={history}>
-                <div className="make3D" onClick={handleClick}>
-                  <div className="product-front">
-                    <div className="shadow">
-                      <img src={item.img} alt="" />
-                    </div>
-                    <button
-                      onClick={(e) => handleChange(e, index)}
-                      className="button-image"
-                    >
-                      <img
-                        src={clicked[index] ? NewFavorites : Favorites}
-                        alt=""
-                      ></img>
-                    </button>
-                    <div className="stats">
-                      <div className="stats-container">
-                        <p className="product_name">{item.name}</p>
-                        <p className="product_category">
-                          Category: {item.category}
-                        </p>
-                        <p className="product_price">NGN {item.price}</p>
-                      </div>
+              <div className="make3D" onClick={handleClick}>
+                <div className="product-front">
+                  <div className="shadow">
+                    <img src={item.img} alt="" />
+                  </div>
+                  <button
+                    onClick={(e) => handleChange(e, index)}
+                    className="button-image"
+                  >
+                    <img
+                      src={clicked[index] ? NewFavorites : Favorites}
+                      alt=""
+                    ></img>
+                  </button>
+                  <div className="stats">
+                    <div className="stats-container">
+                      <p className="product_name">{item.name}</p>
+                      <p className="product_category">
+                        Category: {item.category}
+                      </p>
+                      <p className="product_price">NGN {item.price}</p>
                     </div>
                   </div>
                 </div>
-              </Router>
+              </div>
             </>
           );
         })}
@@ -192,4 +190,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Landing;

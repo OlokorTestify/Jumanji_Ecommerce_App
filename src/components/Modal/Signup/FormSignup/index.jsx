@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import GoogleButton from "../../../GoogleButton";
 import * as Yup from "yup";
 import "./style.css";
 
@@ -16,12 +17,23 @@ const FormSignUp = (props) => {
     email: Yup.string().email("Invalid email").required("Required"),
     password: Yup.string().required("Please enter your password"),
     Firstname: Yup.string().required("Please enter your first name"),
+    Lastname: Yup.string().required("Please enter your last name"),
+    number: Yup.string()
+      .required("Please input your Phone number")
+      .matches(/^\d+$/, "phone number not valid")
+      .min(11),
   });
 
   return (
     <>
       <Formik
-        initialValues={{ email: "test@gmail.com", password: "okaygoogke" }}
+        initialValues={{
+          email: "test@gmail.com",
+          password: "okaygoogke",
+          Firstname: "",
+          Lastname: "",
+          number: "",
+        }}
         onSubmit={handleSubmit}
         validationSchema={signInSchema}
       >
@@ -29,57 +41,59 @@ const FormSignUp = (props) => {
           <>
             <section className="login_form">
               <Form>
+                <div>
+                  <Field type="email" name="email" placeholder="email" />
+                </div>
+
                 <ErrorMessage name="email" component="div" />
                 <div>
                   <Field
-                    className="input-field"
-                    type="email"
-                    name="email"
-                    placeholder="email"
-                  />
-                </div>
-                <ErrorMessage name="password" component="div" />
-                <div>
-                  <Field
-                    className="input-field"
                     type="password"
                     name="password"
                     placeholder="password"
                   />
                 </div>
-                <ErrorMessage name="Firstname" component="div" />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="error_message"
+                />
                 <div>
                   <Field
-                    className="input-field"
                     type="text"
                     name="Firstname"
                     placeholder="First name"
                   />
                 </div>
-                <ErrorMessage name="Last-name" component="div" />
+                <ErrorMessage
+                  name="Firstname"
+                  component="div"
+                  className="error_message"
+                />
                 <div>
                   <Field
-                    className="input-field"
                     type="text"
-                    name="lastName"
+                    name="LastName"
                     placeholder="Last Name (optional)"
                   />
                 </div>
-                <ErrorMessage name="phone-number" component="div" />
+                <ErrorMessage
+                  name="Lastname"
+                  component="div"
+                  className="error_message"
+                />
                 <div>
                   <Field
-                    className="input-field"
                     type="tel"
                     name="number"
                     placeholder="Phone Number (digits only)"
                   />
                 </div>
-                <div className="rules">
-                  <Field type="checkbox" name="rules" />
-                  <label for="rules" className="">
-                    I agree with rules{" "}
-                  </label>
-                </div>
+                <ErrorMessage
+                  name="number"
+                  component="div"
+                  className="error_message"
+                />
                 <div>
                   <button
                     className="form-button"
@@ -101,20 +115,7 @@ const FormSignUp = (props) => {
                 </p>
                 <p className="paragraph">or</p>
                 <section className="button-div">
-                  <button
-                    className="forms-button"
-                    type="submit"
-                    disabled={isSubmitting}
-                  >
-                    GOOGLE
-                  </button>
-                  <button
-                    className="login"
-                    type="submit"
-                    disabled={isSubmitting}
-                  >
-                    FACEBOOK
-                  </button>
+                  <GoogleButton mode={"Sign Up"} />
                 </section>
               </Form>
             </section>

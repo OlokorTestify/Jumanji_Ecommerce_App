@@ -249,3 +249,25 @@ body {
     box-shadow: 0 3px 7px 0 rgba(0, 0, 0, .17);
     cursor: pointer;
 }
+
+@media screen and (max-width: 430px) {
+    .dashboard-flex {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .seller-profile {
+        width: 90%;
+        margin-left: 1.2rem;
+    }
+
+    .dashboard-flex .item {
+        width: 90%;
+        margin-left: 1.2rem;
+        margin-bottom: 5rem;
+    }
+
+    .phoneButton {
+        width: 100%;
+    }
+}

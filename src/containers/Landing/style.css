@@ -102,3 +102,66 @@
 .button-image:hover {
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.54);
 }
+
+@media screen and (max-width: 1030px) {
+    .sideBar {
+        display: none;
+    }
+
+    .main .product_section {
+        display: flex;
+    }
+
+    .main {
+        margin: 0 auto;
+    }
+
+    .main .make3D {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .sideBar {
+        display: none;
+    }
+
+    .main {}
+
+    .main .inputMain {
+        width: 90%;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        padding: 0.5rem;
+    }
+
+    .main .make3D {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+
+
+    .sideBar {
+        display: none;
+    }
+
+
+    .main .product_section {
+        display: flex;
+    }
+
+    .main .make3D {
+        width: 90%;
+    }
+
+    .main .inputMain {
+        margin: 3rem auto;
+    }
+
+    .button {
+        display: none;
+    }
+
+}

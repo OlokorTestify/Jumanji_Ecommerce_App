@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import GoogleButton from "../../../GoogleButton";
 import * as Yup from "yup";
 import "./style.css";
 
@@ -13,7 +14,7 @@ const FormLogin = (props) => {
   };
 
   const signInSchema = Yup.object().shape({
-    email: Yup.string().email("Invalid email").required("Required"),
+    email: Yup.string().email("Invalid email").required("Email required"),
     password: Yup.string().required("Please enter your password"),
   });
 
@@ -28,24 +29,26 @@ const FormLogin = (props) => {
           <>
             <section className="login_form-card">
               <Form>
-                <ErrorMessage name="email" component="div" />
                 <div>
-                  <Field
-                    className="input-field"
-                    type="email"
-                    name="email"
-                    placeholder="email"
-                  />
+                  <Field type="email" name="email" placeholder="email" />
                 </div>
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="error_message"
+                />
                 <div>
                   <Field
-                    className="input-field"
                     type="password"
                     name="password"
                     placeholder="password"
                   />
                 </div>
-                <ErrorMessage name="password" component="div" />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="error_message"
+                />
                 <p className="forgot-password">Forgot your password?</p>
                 <div>
                   <button
@@ -68,20 +71,7 @@ const FormLogin = (props) => {
                 </p>
                 <p className="paragraph">or</p>
                 <section className="button-div">
-                  <button
-                    className="forms-button"
-                    type="submit"
-                    disabled={isSubmitting}
-                  >
-                    GOOGLE
-                  </button>
-                  <button
-                    className="login"
-                    type="submit"
-                    disabled={isSubmitting}
-                  >
-                    FACEBOOK
-                  </button>
+                  <GoogleButton mode={"Log In"} />
                 </section>
               </Form>
             </section>

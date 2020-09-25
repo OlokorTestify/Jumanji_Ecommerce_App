@@ -1,0 +1,86 @@
+.dropdown_content {
+    visibility: hidden;
+    position: absolute;
+    margin-top: 1px;
+    background-color: #fff;
+    top: 100%;
+    left: -3rem;
+    width: 9rem;
+    transform: translateY(1em);
+    z-index: -1;
+    transition: all 0.2s ease-out;
+    padding: 0.4rem;
+    border-radius: 5px;
+    box-shadow: 1px 12px 25px rgba(80, 114, 125, .5);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropdown_content ul {
+    list-style-type: none;
+}
+
+.dropdown .dropdown_content ul li {
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown_content {
+    visibility: visible;
+    z-index: 1;
+    transform: translateY(0%);
+}
+
+.dropdown_content .messages-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.dropdown_content .messageText {
+    margin-left: 0.4rem;
+}
+
+.dropdown_content .Fa-signOut {
+    margin-left: 2.75rem;
+}
+
+.dropdown_content .Fa-signOut p {
+    font-size: 12px;
+}
+
+.dropdown_content .messages-box img {
+    width: 60%;
+}
+
+.dropdown_content .fa-fa-adverts {
+    color: #303a4b;
+    font-size: 10px;
+    padding: 8px 8px 0;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #3db83a;
+    border-bottom: 1px solid #eef2f4;
+}
+
+.dropdown_content .message-image {
+    display: flex;
+    width: 1rem;
+    min-width: 1rem;
+    height: 1rem;
+    justify-content: center;
+}
+
+.dropdown_content .messageText p {
+    font-size: 12px;
+}
+
+.dropdown_content .product_link {
+    text-decoration: none;
+    color: #303a4b;
+}

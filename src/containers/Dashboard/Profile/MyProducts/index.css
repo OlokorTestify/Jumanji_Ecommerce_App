@@ -1,0 +1,25 @@
+.adverts_item {
+    display: flex;
+    flex-direction: column;
+}
+
+.adverts_item .advert {
+    display: flex;
+}
+
+.adverts_item .no-advert {
+    margin: 0 auto;
+}
+
+.adverts_item .create_button {
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+    width: 100%;
+    background: green;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, .17);
+    cursor: pointer;
+}
