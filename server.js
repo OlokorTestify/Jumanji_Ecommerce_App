@@ -24,7 +24,7 @@ const createServers = (port) => {
     res.sendFile(`${dir}/index.html`);
   });
 
-  server.listen(port, () => console.log("🥁 server running "));
+  server.listen(port, "0.0.0.0", () => console.log("🥁 server running "));
 };
 
 module.exports = createServers;
