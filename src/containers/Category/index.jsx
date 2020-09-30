@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Router, useHistory, Link } from "react-router-dom";
+import history from "../../utils/history";
 import Favorites from "../../assets/image/star.png";
 import NewFavorites from "../../assets/image/green-star.png";
 import "./style.css";
@@ -135,8 +135,6 @@ const Secondary = () => {
     setClicked(newStatus);
     e.stopPropagation();
   };
-
-  const history = useHistory();
   const handleClick = () => {
     history.push("/item");
   };
@@ -150,32 +148,30 @@ const Secondary = () => {
         {data.map((item, index) => {
           return (
             <>
-              <Router history={history}>
-                <div className="card" onClick={handleClick}>
-                  <div className="product-front">
-                    <div class="shadow">
-                      <img src={item.img} alt="" />
-                    </div>
-                    <button
-                      onClick={(e) => handleChange(e, index)}
-                      className="Favorite"
-                    >
-                      <img
-                        src={clicked[index] ? NewFavorites : Favorites}
-                        alt=""
-                      ></img>
-                    </button>
-                    <div class="card-stats">
-                      <div className="stats">
-                        <div className="stats-container">
-                          <p class="product_name">{item.name}</p>
-                          <span class="product_price">${item.price}</span>
-                        </div>
+              <div className="card" onClick={handleClick}>
+                <div className="product-front">
+                  <div class="shadow">
+                    <img src={item.img} alt="" />
+                  </div>
+                  <button
+                    onClick={(e) => handleChange(e, index)}
+                    className="Favorite"
+                  >
+                    <img
+                      src={clicked[index] ? NewFavorites : Favorites}
+                      alt=""
+                    ></img>
+                  </button>
+                  <div class="card-stats">
+                    <div className="stats">
+                      <div className="stats-container">
+                        <p class="product_name">{item.name}</p>
+                        <span class="product_price">${item.price}</span>
                       </div>
                     </div>
                   </div>
                 </div>
-              </Router>
+              </div>
             </>
           );
         })}

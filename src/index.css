@@ -22,6 +22,14 @@ body {
   box-sizing: border-box;
 }
 
+.main_section_top {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5.37rem;
+}
+
+
+
 input,
 button {
   border: none;
@@ -30,6 +38,9 @@ button {
 
 button {
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 p {
@@ -39,4 +50,61 @@ p {
 .error_message {
   color: #fc199b;
   font-size: 13px;
+}
+
+input,
+textarea {
+  box-shadow: 1px 1px 4px rgba(80, 114, 125, .4);
+  border-radius: 5px;
+}
+
+.button_google {
+  background: #ffffff;
+  box-shadow: 0 8px 87px rgba(0, 0, 0, .2);
+  border-radius: 1rem;
+  padding: .9rem 2rem;
+  color: #000000;
+  display: flex;
+  flex-direction: row;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  outline: none;
+  transition: all .4s;
+  width: 250px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.button_email {
+  background-color: #3db83a;
+  box-shadow: 0 8px 87px rgba(0, 0, 0, .2);
+  border-radius: 1rem;
+  padding: .9rem 2rem;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  outline: none;
+  transition: all .4s;
+}
+
+.form-button {
+  border-radius: 4px;
+  background-color: #5ff7d2;
+  padding: 1rem 4rem;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .main_section_top {
+    margin-top: 3rem
+  }
 }

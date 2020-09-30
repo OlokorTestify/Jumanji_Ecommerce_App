@@ -1,38 +1,53 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useDispatch } from "react-redux";
+import ReactLoading from "react-loading";
+import { toast } from "react-toastify";
 import GoogleButton from "../../../GoogleButton";
+import { userSignUp } from "../../../../store/actions";
 import * as Yup from "yup";
 import "./style.css";
 
 const FormSignUp = (props) => {
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
-  const handleSubmit = ({ email, password }, { setSubmitting }) => {
-    props.setIsLoggedIn(true);
-    props.onClose();
-    setSubmitting(false);
+  const handleSubmit = async (
+    { email, password, first_name, last_name },
+    { setSubmitting },
+  ) => {
+    try {
+      setLoading(true);
+      await dispatch(userSignUp({ email, password, first_name, last_name }));
+      toast.success("SIGNUP SUCCESSFUL");
+      props.onClose();
+      setSubmitting(false);
+      setLoading(false);
+    } catch (error) {
+      if (error.message) {
+        toast.error(error.message);
+        return;
+      }
+      toast.error(error);
+      setLoading(false);
+    }
   };
 
   const signInSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Required"),
     password: Yup.string().required("Please enter your password"),
-    Firstname: Yup.string().required("Please enter your first name"),
-    Lastname: Yup.string().required("Please enter your last name"),
-    number: Yup.string()
-      .required("Please input your Phone number")
-      .matches(/^\d+$/, "phone number not valid")
-      .min(11),
+    first_name: Yup.string().required("Please enter your first name"),
+    last_name: Yup.string().required("Please enter your last name"),
   });
 
   return (
     <>
       <Formik
         initialValues={{
-          email: "test@gmail.com",
-          password: "okaygoogke",
-          Firstname: "",
-          Lastname: "",
-          number: "",
+          email: "",
+          password: "",
+          first_name: "",
+          last_name: "",
         }}
         onSubmit={handleSubmit}
         validationSchema={signInSchema}
@@ -61,46 +76,44 @@ const FormSignUp = (props) => {
                 <div>
                   <Field
                     type="text"
-                    name="Firstname"
+                    name="first_name"
                     placeholder="First name"
                   />
                 </div>
                 <ErrorMessage
-                  name="Firstname"
+                  name="first_name"
                   component="div"
                   className="error_message"
                 />
                 <div>
                   <Field
                     type="text"
-                    name="LastName"
+                    name="last_name"
                     placeholder="Last Name (optional)"
                   />
                 </div>
                 <ErrorMessage
-                  name="Lastname"
+                  name="Last_name"
                   component="div"
                   className="error_message"
                 />
-                <div>
-                  <Field
-                    type="tel"
-                    name="number"
-                    placeholder="Phone Number (digits only)"
-                  />
-                </div>
-                <ErrorMessage
-                  name="number"
-                  component="div"
-                  className="error_message"
-                />
+
                 <div>
                   <button
                     className="form-button"
                     type="submit"
                     disabled={isSubmitting}
                   >
-                    Sign Up
+                    {loading ? (
+                      <ReactLoading
+                        type={"spokes"}
+                        color="green"
+                        height={30}
+                        width={30}
+                      />
+                    ) : (
+                      "SIGN UP"
+                    )}
                   </button>
                 </div>
                 <p className="fa-register">
@@ -122,7 +135,6 @@ const FormSignUp = (props) => {
           </>
         )}
       </Formik>
-      {loading ? <div>Loading...</div> : null}
     </>
   );
 };

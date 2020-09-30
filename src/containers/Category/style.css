@@ -18,6 +18,10 @@
     padding: .7rem;
 }
 
+.secondary .inputMain .input {
+    box-shadow: none;
+}
+
 .secondary .card .shadow {
     height: 20rem;
 }
@@ -115,4 +119,29 @@
 
 .product_price {
     color: #3db83a;
+}
+
+@media screen and (max-width: 800px) {
+    .secondary {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0.5rem;
+    }
+
+    .secondary .card {
+        width: 30%;
+    }
+
+}
+
+@media screen and (max-width: 430px) {
+    .secondary {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0.5rem;
+    }
+
+    .secondary .card {
+        width: 95%;
+    }
 }

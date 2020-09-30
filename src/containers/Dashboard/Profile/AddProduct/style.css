@@ -1,6 +1,6 @@
 .Product_form {
     margin: 0 auto;
-    margin-top: 7rem;
+    margin-top: 4rem;
     padding: 2rem;
     width: 40%;
     background: #fff;
@@ -10,7 +10,7 @@
 }
 
 .Product_form h1 {
-    width: 40%;
+    width: 45%;
     margin: 0 auto;
     margin-bottom: 2rem;
 }
@@ -39,4 +39,28 @@ textarea {
     cursor: pointer;
     font-size: 1rem;
     margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 800px) {
+    .Product_form {
+        width: 95%;
+
+    }
+
+    .Product_form h1 {
+        width: 100%;
+
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .Product_form {
+        width: 95%;
+
+    }
+
+    .Product_form h1 {
+        width: 100%;
+
+    }
 }

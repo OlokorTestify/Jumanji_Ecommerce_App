@@ -1,0 +1,91 @@
+.security_section {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3rem;
+    height: 600px;
+    overflow-y: scroll;
+    padding-bottom: 10rem;
+}
+
+.security_section .emailHeader {
+    opacity: 0.4;
+    margin-top: 3rem;
+}
+
+
+.security_section .email-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    align-items: center;
+}
+
+.security_section .email-card .email {
+    opacity: 0.4;
+}
+
+.security_section .password {
+    display: flex;
+    flex-direction: column;
+}
+
+.security_section .password .setPassword {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.security_section .password .setPassword .input {
+    width: 60%;
+}
+
+
+.security_section .password .setPassword input {
+    width: 100%;
+    padding: 1rem;
+}
+
+.security_section .password .password_btn {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.security_section .form-button {
+    width: 35%;
+    padding: 1rem;
+    align-self: flex-end;
+    font-size: 13px;
+}
+
+@media screen and (max-width: 430px) {
+    .security_section {
+        margin-left: 1rem;
+    }
+
+    .security_section .email-card {
+        width: 90%;
+    }
+
+    .security_section .password .setPassword {
+        width: 95%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .security_section .password .password_btn {
+        width: 95%;
+    }
+
+    .security_section .password .password_btn button {
+        width: 61%;
+    }
+
+    .security_section .password .setPassword .input {
+        width: 100%;
+    }
+}

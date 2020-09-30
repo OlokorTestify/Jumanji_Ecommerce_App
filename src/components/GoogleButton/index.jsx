@@ -1,22 +1,30 @@
-import React from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import { GoogleLogin } from "react-google-login";
+import { useDispatch } from "react-redux";
+import ReactLoading from "react-loading";
+import { toast } from "react-toastify";
+import { googleAuth } from "../../store/actions";
 
 const GoogleButton = (props) => {
-  const sendGoogleToken = async (tokenId) => {
-    try {
-      const res = await axios.post("http://localhost:7002/auth/google", {
-        token: tokenId,
-      });
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
-  const responseGoogle = (response) => {
-    console.log(response);
-    sendGoogleToken(response.tokenId);
+  const responseGoogle = async (response) => {
+    try {
+      setLoading(true);
+      await dispatch(googleAuth(response.tokenId));
+      toast.success(`${props.mode} SUCCESSFUL`);
+      props.onClose();
+      setLoading(false);
+    } catch (error) {
+      if (error.message) {
+        toast.error(error.message);
+        setLoading(false);
+        return;
+      }
+      setLoading(false);
+      toast.error(error);
+    }
   };
   return (
     <>
@@ -29,14 +37,23 @@ const GoogleButton = (props) => {
           <button
             className="button_google"
             onClick={renderProps.onClick}
-            disabled={renderProps.disabled}
+            disabled={renderProps.disabled || loading}
           >
             <img
               className="google_image"
               src="https://cdn.worldvectorlogo.com/logos/google-icon.svg"
               alt="google"
             />
-            {props.mode} with Google
+            {loading ? (
+              <ReactLoading
+                type={"spokes"}
+                color="green"
+                height={30}
+                width={30}
+              />
+            ) : (
+              `${props.mode} WITH GOOGLE`
+            )}
           </button>
         )}
       ></GoogleLogin>

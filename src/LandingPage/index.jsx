@@ -5,9 +5,7 @@ import Landing from "../containers/Landing";
 const landingPage = () => {
   return (
     <>
-      <div
-        style={{ display: "flex", flexDirection: "row", marginTop: "5.37rem" }}
-      >
+      <div className="main_section_top">
         <SideBar />
         <Landing />
       </div>

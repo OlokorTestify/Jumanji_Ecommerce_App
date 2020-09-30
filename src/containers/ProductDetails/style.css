@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-top: 10rem;
+    padding-top: 8rem;
     overflow: hidden;
     background-color: #eef2f4;
     margin-bottom: 3rem;
@@ -27,6 +27,8 @@ body {
 
 .item img {
     width: 100%;
+    height: 40rem;
+    object-fit: cover;
 }
 
 .stat_container {
@@ -51,10 +53,10 @@ body {
     margin: 0 auto;
 }
 
-.profileImg img {
-    width: 100%;
+.seller-profile .flex-card .profileImg img {
     border-radius: 20%;
     cursor: pointer;
+    width: 100%;
 }
 
 .flex-card {
@@ -90,6 +92,7 @@ body {
     border-radius: 6px;
     width: 90%;
     font-weight: 400;
+    font-size: 14px;
     background: green;
     color: #fff;
     text-decoration: none;
@@ -102,6 +105,7 @@ body {
     border-radius: 6px;
     margin-top: 1.6rem;
     margin-bottom: 1.6rem;
+    font-size: 14px;
     width: 20%;
     background: green;
     color: #fff;
@@ -250,10 +254,29 @@ body {
     cursor: pointer;
 }
 
+@media screen and (max-width: 800px) {
+    .seller-profile .boxShadow .safetyTips ul {
+        padding-left: 0.5rem;
+    }
+
+    .phoneButton {
+        width: 40%;
+    }
+
+    .dashboard-flex .item {
+        width: 60%;
+    }
+
+    .seller-profile {
+        width: 30%;
+    }
+}
+
 @media screen and (max-width: 430px) {
     .dashboard-flex {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
+        padding-top: 4rem;
     }
 
     .seller-profile {

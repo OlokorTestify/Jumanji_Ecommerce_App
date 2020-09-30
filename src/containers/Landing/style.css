@@ -14,18 +14,18 @@
     background-color: #fff;
     box-shadow: 0 8px 80px rgba(0, 0, 0, .06);
     border-radius: 1rem;
-    padding: .7rem;
+    padding: .6rem;
 }
 
 .main .button {
     background: #fb4c47;
     box-shadow: 0 8px 87px rgba(0, 0, 0, .1);
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     border: none;
-    padding: .9rem 4rem;
+    padding: .6rem 4rem;
     color: #fff;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 15px;
     outline: none;
     transition: all .8s ease-in-out;
 }
@@ -34,6 +34,9 @@
     width: 80%;
     padding: .5rem .75rem;
     font-size: 18px;
+    border: none;
+    box-shadow: none;
+    font-size: 14px;
     color: #4b4f51;
 
 }
@@ -54,7 +57,7 @@
     color: #3db83a;
 }
 
-.main .make3D {
+.main .product_section .make3D {
     width: 23%;
     overflow: hidden;
     transform-style: preserve-3d;
@@ -116,7 +119,7 @@
         margin: 0 auto;
     }
 
-    .main .make3D {
+    .main .product_section .make3D {
         width: 30%;
     }
 }
@@ -126,7 +129,6 @@
         display: none;
     }
 
-    .main {}
 
     .main .inputMain {
         width: 90%;
@@ -135,9 +137,10 @@
         padding: 0.5rem;
     }
 
-    .main .make3D {
+    .main .product_section .make3D {
         width: 40%;
     }
+
 }
 
 @media screen and (max-width: 430px) {
@@ -150,18 +153,26 @@
 
     .main .product_section {
         display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
-    .main .make3D {
-        width: 90%;
+    .main .product_section .make3D {
+        width: 100%;
     }
+
 
     .main .inputMain {
         margin: 3rem auto;
+        flex-direction: column;
+    }
+
+    .main .inputMain input {
+        width: 100%;
     }
 
     .button {
-        display: none;
+        width: 100%;
     }
 
 }

@@ -1,141 +1,47 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import Fade from "react-reveal/Fade";
+import { useSelector, useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import ReactLoading from "react-loading";
+import { getAllProducts } from "../../store/actions";
 import history from "../../utils/history";
 import Favorites from "../../assets/image/star.png";
 import NewFavorites from "../../assets/image/green-star.png";
 import "./style.css";
 
-const data = [
-  {
-    img:
-      "https://www.extremetech.com/wp-content/uploads/2019/12/SONATA-hero-option1-764A5360-edit-640x354.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 1,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 2,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 3,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 4,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 5,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 6,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 7,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 8,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 9,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 10,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    id: 11,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 12,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 13,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 14,
-  },
-  {
-    img:
-      "https://csmobiles.com/18765-large_default/apple-iphone-11-128gb-rojo.jpg",
-    price: "500,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 15,
-  },
-];
-
 const Landing = () => {
-  const [clicked, setClicked] = useState(data.map((element) => false));
+  const [loading, setLoading] = useState(false);
+  const { products } = useSelector((state) => state.product);
+
+  const dispatch = useDispatch();
+
+  const getProducts = async () => {
+    try {
+      setLoading(true);
+      await dispatch(getAllProducts());
+      setLoading(false);
+    } catch (error) {
+      if (error.message) {
+        toast.error(error.message, {
+          pauseOnHover: true,
+          position: "bottom-right",
+        });
+        setLoading(false);
+        return;
+      }
+      toast.error(error, {
+        pauseOnHover: true,
+        position: "top-center",
+      });
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, [""]);
+
+  const [clicked, setClicked] = useState(products.map((element) => false));
   const handleChange = (e, index) => {
     const newStatus = [...clicked];
     newStatus[index] = !clicked[index];
@@ -143,24 +49,49 @@ const Landing = () => {
     e.stopPropagation();
   };
 
-  const handleClick = () => {
-    history.push("/item");
+  const handleClick = (id) => {
+    history.push(`/item/${id}`);
   };
 
   return (
     <section className="main">
-      <div className="inputMain">
-        <input className="input" type="text" placeholder="Search" />
-        <button className="button">Search</button>
-      </div>
-      <section className="product_section">
-        {data.map((item, index) => {
-          return (
-            <>
-              <div className="make3D" onClick={handleClick}>
+      <Fade top>
+        <div className="inputMain">
+          <input className="input" type="text" placeholder="Search" />
+          <button className="button">SEARCH</button>
+        </div>
+      </Fade>
+
+      {loading && (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <ReactLoading
+            type={"spokes"}
+            color={"green"}
+            height={100}
+            width={100}
+          />
+        </div>
+      )}
+
+      {!loading && products && (
+        <section className="product_section">
+          {products.map((item, index) => {
+            return (
+              <div
+                className="make3D"
+                key={item.id}
+                onClick={() => handleClick(item.id)}
+              >
                 <div className="product-front">
                   <div className="shadow">
-                    <img src={item.img} alt="" />
+                    <img src={item.image_url} alt="" />
                   </div>
                   <button
                     onClick={(e) => handleChange(e, index)}
@@ -177,15 +108,17 @@ const Landing = () => {
                       <p className="product_category">
                         Category: {item.category}
                       </p>
-                      <p className="product_price">NGN {item.price}</p>
+                      <p className="product_price">
+                        NGN {item.price.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
-            </>
-          );
-        })}
-      </section>
+            );
+          })}
+        </section>
+      )}
     </section>
   );
 };

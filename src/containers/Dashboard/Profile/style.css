@@ -7,7 +7,7 @@ p {}
 .item-header {
     line-height: 28px;
     color: #303a4b;
-    padding: 16px 24px;
+    padding: 5px 24px;
     font-size: 20px;
     box-sizing: border-box;
     border-bottom: 1px solid rgba(166, 184, 189, .5);
@@ -43,6 +43,7 @@ p {}
     margin: 0 auto;
     overflow: hidden;
     background-color: #eef2f4;
+    overflow: hidden;
 }
 
 .dashboard-message {
@@ -54,6 +55,7 @@ p {}
     background: #fff;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.14);
     width: 70%;
+    height: 80vh;
     border-radius: 10px;
 }
 
@@ -80,7 +82,7 @@ p {}
 .profileImg {
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 50%;
     border-radius: 30%;
     cursor: pointer;
 }
@@ -159,6 +161,7 @@ p {}
     display: block;
     white-space: nowrap;
     text-overflow: ellipsi;
+    color: black;
 }
 
 .messageText p {
@@ -168,4 +171,64 @@ p {}
 .product_link {
     text-decoration: none;
     color: #303a4b;
+}
+
+@media screen and (max-width: 1030px) {
+    .sideBar {
+        display: none;
+    }
+
+    .main .product_section {
+        display: flex;
+    }
+
+    .main {
+        margin: 0 auto;
+    }
+
+    .main .make3D {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .sideBar {
+        display: none;
+    }
+
+    .dashboard-message .center {
+        width: 95%;
+    }
+
+    .messages-box {
+        padding-left: 0;
+    }
+
+    .main .inputMain {
+        width: 90%;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        padding: 0.5rem;
+    }
+
+    .main .make3D {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .dashboard-message .landing-sideBar {
+        display: none;
+    }
+
+    .dashboard-message .main_content {
+        padding-bottom: 4rem;
+        width: 100%;
+        overflow-y: scroll;
+    }
+
+    .dashboard-message .center {
+        width: 95%;
+        padding-top: 4rem;
+    }
 }

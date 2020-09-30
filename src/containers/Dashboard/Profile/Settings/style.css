@@ -1,0 +1,24 @@
+.settings_section .item-header {
+    display: flex;
+    flex-direction: row;
+    line-height: 4px;
+    color: #303a4b;
+    padding: 5px 24px;
+    font-size: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(166, 184, 189, .5);
+}
+
+.item-header p {
+    cursor: pointer;
+}
+
+.item-header .security_tab {
+    margin-left: 3rem;
+}
+
+.item-header .active_tab {
+    margin-bottom: -6px;
+    color: green;
+    border-bottom: 3px solid green;
+}

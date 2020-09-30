@@ -1,0 +1,110 @@
+.Edit {
+    display: flex;
+    flex-direction: row;
+    height: 600px;
+    justify-content: space-between;
+    overflow-y: scroll;
+    width: 95%;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.Edit .Edit-image {
+    width: 45%;
+}
+
+
+.Edit .Edit-image .file {
+    width: 100%;
+    padding: 1rem;
+}
+
+.Edit .Edit-image button {
+    margin-top: 2rem;
+    width: 45%;
+    padding: 0.8rem;
+    border-radius: 4px;
+    align-self: flex-end;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.14);
+    color: white;
+    background-color: #5ff7d2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.Edit .Edit-image img {
+    padding-bottom: 3rem;
+    width: 100%;
+}
+
+.Edit .form {
+    width: 45%;
+    padding: 10px;
+}
+
+.Edit .form button {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+
+.Edit .form .Edit_form h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.Edit_form input,
+select,
+textarea {
+    width: 100%;
+    border-radius: 4px;
+    padding: 1rem;
+    background: #ffffff;
+    letter-spacing: 0.1rem;
+    font-size: 13px;
+    margin-top: 1.5rem;
+}
+
+
+.Edit_form textarea:focus,
+input:focus {
+    outline: none;
+    border: 1px solid #5ff7d2;
+}
+
+.Edit::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+
+    .Edit .form {
+        width: 65%;
+    }
+
+    .Edit .Edit-image {
+        width: 50%;
+
+
+    }
+
+    .Edit .Edit-image button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .Edit {
+        flex-direction: column;
+    }
+
+    .Edit .form {
+        width: 96%;
+    }
+
+    .Edit .Edit-image {
+        width: 96%;
+    }
+}

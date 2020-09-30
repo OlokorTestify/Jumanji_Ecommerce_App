@@ -1,68 +1,81 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
+import ReactLoading from "react-loading";
+import { useSelector, useDispatch } from "react-redux";
+import history from "../../utils/history";
+import { getProduct } from "../../store/actions";
 import "./style.css";
 
-const items = [
-  {
-    img:
-      "https://www.extremetech.com/wp-content/uploads/2019/12/SONATA-hero-option1-764A5360-edit-640x354.jpg",
-    price: "5,000,000",
-    name: "Pleated Denim Skirts",
-    category: "Fashion",
-    id: 1,
-    userName: "John Doe",
-    datePosted: "21st june 2010",
-    address: "Lagos Island, Lagos State, Nigeria",
-    state: "Nigerian used",
-    ad:
-      "V4 engine with factory fitted AC, allow wheels, pure leather seat, reverse camera with complete papers",
-    phone: 2349023229099,
-    profileImg:
-      "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png",
-  },
-];
+const DashboardLanding = (props) => {
+  const dispatch = useDispatch();
+  const params = useParams();
+  const [loading, setLoading] = useState(false);
+  const [messageLoading, setMessageLoading] = useState(false);
+  const [messageState, setMessageState] = useState("messageButton");
+  const [contact, setContact] = useState(false);
+  const [number, setNumber] = useState(false);
+  const { product } = useSelector((state) => state.product);
 
-const DashboardLanding = () => {
-  const [messageState, setMessageState] = useState(false);
-  const [contact, setContact] = useState("Show contact");
-  const [number, setNumber] = useState("Show Contact");
+  const getOneProduct = async () => {
+    try {
+      setLoading(true);
+      await dispatch(getProduct(params.id));
+      setLoading(false);
+    } catch (error) {
+      if (error.message) {
+        toast.error(error.message);
+        setLoading(false);
+        return;
+      }
+      toast.error(error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getOneProduct();
+  }, [""]);
 
   const handleChange = (e) => {
-    setMessageState(true);
+    setMessageState("messageInput");
   };
   const handleClick = (e) => {
-    const sellerNumber = "2349099176247";
-    setContact(sellerNumber);
+    setContact(!contact);
     e.stopPropagation();
   };
 
   const onClick = (e) => {
-    const myNumber = "2349099176247";
-    setNumber(myNumber);
+    setNumber(!number);
     e.stopPropagation();
   };
-  return items.map((item) => {
-    return (
-      <>
+  return (
+    <>
+      {loading && (
+        <ReactLoading type={"spokes"} color="green" height={30} width={30} />
+      )}
+      {!loading && product && (
         <div className="dashboard-flex">
           <div className="item">
             <div>
-              <img src={item.img} alt="" />
+              <img src={product.image_url} alt="" />
             </div>
             <div className="stat_container">
               <div>
-                <h2>{item.name}</h2>
+                <h2>{product.name}</h2>
               </div>
               <div className="statistics">
-                <p className="date">{item.datePosted}</p>
-                <p>{item.address}</p>
+                <p className="date">{product.createdAt}</p>
+                <p>{product.address}</p>
               </div>
               <div>
                 <div>
-                  <h2>Ad Description</h2>
-                  <p>{item.ad}</p>
+                  <h2>Description</h2>
+                  <p>{product.description}</p>
                 </div>
                 <button onClick={onClick} className="phoneButton">
-                  {number}
+                  {number ? product.contact : "SHOW CONTACT"}
                 </button>
               </div>
             </div>
@@ -70,37 +83,70 @@ const DashboardLanding = () => {
           <div className="seller-profile">
             <div className="mainDiv">
               <div className="item_price">
-                <p>NGN {item.price}</p>
+                <p>NGN {product.price.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
               </div>
               <div className="flex-card">
                 <div className="profileImg">
-                  <img src={item.profileImg} alt="" />
+                  <img
+                    src={
+                      product.owner.image_url
+                        ? product.owner.image_url
+                        : "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"
+                    }
+                    alt=""
+                  />
                 </div>
                 <div className="userName">
-                  <h3>{item.userName}</h3>
+                  <h3>
+                    {product.owner.first_name} {product.owner.last_name}
+                  </h3>
                 </div>
                 <div className="phone">
                   <button onClick={handleClick} className="itemPhone">
-                    {contact}
+                    {contact ? product.contact : "SHOW CONTACT"}
                   </button>
                 </div>
                 <div className="phone">
-                  {messageState ? (
-                    <div>
+                  {messageState === "messageInput" && (
+                    <form
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        setMessageLoading(true);
+                        setTimeout(() => {
+                          setMessageState("messageFeedback");
+                        }, 1200);
+                        setMessageLoading(false);
+                      }}
+                    >
                       <textarea
                         className="textArea"
                         placeholder="Enter message here..."
                         rows="4"
                         cols="50"
                         name="comment"
-                        form="userform"
+                        required
                       ></textarea>
-                      <button className="submitMessage">Submit</button>
-                    </div>
-                  ) : (
+                      <button className="submitMessage">
+                        {messageLoading ? (
+                          <ReactLoading
+                            type={"spokes"}
+                            color="green"
+                            height={30}
+                            width={30}
+                          />
+                        ) : (
+                          "SUBMIT"
+                        )}
+                      </button>
+                    </form>
+                  )}
+                  {messageState === "messageButton" && (
                     <button onClick={handleChange} className="message">
                       Leave a message
                     </button>
+                  )}
+                  {messageState === "messageFeedback" && (
+                    <p>Message sent successfully</p>
                   )}
                 </div>
               </div>
@@ -122,13 +168,23 @@ const DashboardLanding = () => {
             </div>
             <div className="break"></div>
             <div className="postAd">
-              <button className="add">Post Ad Like This</button>
+              <button
+                className="add"
+                onClick={() => {
+                  !props.isLoggedIn
+                    ? props.openModal("login")
+                    : history.push("/add_product");
+                }}
+              >
+                Post Product Like This
+              </button>
             </div>
           </div>
         </div>
-      </>
-    );
-  });
+      )}
+      ,
+    </>
+  );
 };
 
 export default DashboardLanding;

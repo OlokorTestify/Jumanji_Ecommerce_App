@@ -45,6 +45,7 @@
 }
 
 .dropdown_content .Fa-signOut {
+    cursor: pointer;
     margin-left: 2.75rem;
 }
 
