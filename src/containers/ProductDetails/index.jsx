@@ -18,25 +18,24 @@ const DashboardLanding = (props) => {
   const [number, setNumber] = useState(false);
   const { product } = useSelector((state) => state.product);
 
-  const getOneProduct = async () => {
-    try {
-      setLoading(true);
-      await dispatch(getProduct(params.id));
-      setLoading(false);
-    } catch (error) {
-      if (error.message) {
-        toast.error(error.message);
-        setLoading(false);
-        return;
-      }
-      toast.error(error);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const getOneProduct = async () => {
+      try {
+        setLoading(true);
+        await dispatch(getProduct(params.id));
+        setLoading(false);
+      } catch (error) {
+        if (error.message) {
+          toast.error(error.message);
+          setLoading(false);
+          return;
+        }
+        toast.error(error);
+        setLoading(false);
+      }
+    };
     getOneProduct();
-  }, [""]);
+  }, [dispatch, params.id]);
 
   const handleChange = (e) => {
     setMessageState("messageInput");

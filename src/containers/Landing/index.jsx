@@ -15,31 +15,30 @@ const Landing = () => {
 
   const dispatch = useDispatch();
 
-  const getProducts = async () => {
-    try {
-      setLoading(true);
-      await dispatch(getAllProducts());
-      setLoading(false);
-    } catch (error) {
-      if (error.message) {
-        toast.error(error.message, {
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        setLoading(true);
+        await dispatch(getAllProducts());
+        setLoading(false);
+      } catch (error) {
+        if (error.message) {
+          toast.error(error.message, {
+            pauseOnHover: true,
+            position: "bottom-right",
+          });
+          setLoading(false);
+          return;
+        }
+        toast.error(error, {
           pauseOnHover: true,
-          position: "bottom-right",
+          position: "top-center",
         });
         setLoading(false);
-        return;
       }
-      toast.error(error, {
-        pauseOnHover: true,
-        position: "top-center",
-      });
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
+    };
     getProducts();
-  }, [""]);
+  }, [dispatch]);
 
   const [clicked, setClicked] = useState(products.map((element) => false));
   const handleChange = (e, index) => {

@@ -26,15 +26,14 @@ const App = () => {
   const [modalState, setModalState] = useState();
   const { isLoggedIn } = useSelector((state) => state.auth);
 
-  const bootStrap = async () => {
-    try {
-      await dispatch(getUser());
-    } catch (error) {
-      dispatch(logOut());
-    }
-  };
-
   useEffect(() => {
+    const bootStrap = async () => {
+      try {
+        await dispatch(getUser());
+      } catch (error) {
+        dispatch(logOut());
+      }
+    };
     if (isLoggedIn) {
       bootStrap();
     }

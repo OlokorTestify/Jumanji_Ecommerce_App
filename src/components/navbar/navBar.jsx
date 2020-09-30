@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import IsLoggedIn from "./ISloggedin/index";
 import NotLoggedIn from "./NotLoggedIn/index";
 import history from "../../utils/history";

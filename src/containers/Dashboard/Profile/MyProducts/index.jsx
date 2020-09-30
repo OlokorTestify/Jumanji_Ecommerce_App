@@ -13,25 +13,24 @@ const Products = () => {
   const [loading, setLoading] = useState(false);
   const { userProducts } = useSelector((state) => state.product);
 
-  const getUserProducts = async () => {
-    try {
-      setLoading(true);
-      await dispatch(getAllUserProducts());
-      setLoading(false);
-    } catch (error) {
-      if (error.message) {
-        toast.error(error.message);
-        setLoading(false);
-        return;
-      }
-      toast.error(error);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const getUserProducts = async () => {
+      try {
+        setLoading(true);
+        await dispatch(getAllUserProducts());
+        setLoading(false);
+      } catch (error) {
+        if (error.message) {
+          toast.error(error.message);
+          setLoading(false);
+          return;
+        }
+        toast.error(error);
+        setLoading(false);
+      }
+    };
     getUserProducts();
-  }, [""]);
+  }, [dispatch]);
 
   const handleClick = () => {
     history.push("/add_product");

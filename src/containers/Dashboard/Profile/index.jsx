@@ -38,7 +38,10 @@ const LoggedIn = () => {
             <div className="messages-box">
               <div className="fa-fa-message">
                 <div className="message-image">
-                  <img src="https://cdn.iconscout.com/icon/premium/png-512-thumb/messages-1924164-1629238.png" />
+                  <img
+                    src="https://cdn.iconscout.com/icon/premium/png-512-thumb/messages-1924164-1629238.png"
+                    alt="message"
+                  />
                 </div>
                 <div className="messageText">
                   <NavLink className="product_link" to={`${url}/products`}>
@@ -52,7 +55,10 @@ const LoggedIn = () => {
               <div className="messages-box">
                 <div className="fa-fa-adverts">
                   <div className="message-image">
-                    <img src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_settings_48px-512.png" />
+                    <img
+                      src="https://www.iconfinder.com/data/icons/google-material-design-3-0/48/ic_settings_48px-512.png"
+                      alt="message"
+                    />
                   </div>
                   <div className="messageText">
                     <p className="message-box">Settings</p>
