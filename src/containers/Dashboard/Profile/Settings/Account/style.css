@@ -3,6 +3,8 @@
     flex-direction: column;
     margin-left: 3rem;
     margin-top: 3rem;
+    overflow-y: scroll;
+    height: 700px;
 }
 
 .userPreference .main-edit .userEdit img {
@@ -15,7 +17,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
 }
 
 .userPreference .main-edit .change_profile_image input {

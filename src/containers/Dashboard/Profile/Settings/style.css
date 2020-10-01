@@ -1,3 +1,9 @@
+.padding {
+    overflow-y: scroll;
+    height: 600px;
+}
+
+
 .settings_section .item-header {
     display: flex;
     flex-direction: row;

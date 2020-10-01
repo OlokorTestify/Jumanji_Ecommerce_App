@@ -1,7 +1,7 @@
 .Edit {
     display: flex;
     flex-direction: row;
-    height: 600px;
+    height: 500px;
     justify-content: space-between;
     overflow-y: scroll;
     width: 95%;
@@ -47,6 +47,7 @@
 .Edit .form button {
     margin-top: 1rem;
     margin-bottom: 2rem;
+    padding: 1rem 2rem;
 }
 
 
@@ -67,6 +68,12 @@ textarea {
     margin-top: 1.5rem;
 }
 
+.divloading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
 
 .Edit_form textarea:focus,
 input:focus {

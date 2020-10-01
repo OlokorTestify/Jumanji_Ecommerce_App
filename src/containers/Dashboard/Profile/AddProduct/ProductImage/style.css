@@ -1,23 +1,25 @@
-.Product_form {
+.image_form {
     margin: 0 auto;
-    margin-top: 4rem;
+    margin-top: 9rem;
     padding: 2rem;
     width: 40%;
     background: #fff;
     box-shadow: 1px 1px 4px rgba(80, 114, 125, .4);
     border-radius: 4px;
-    margin-bottom: 4rem;
+    margin-bottom: 9rem;
 }
 
-.Product_form h1 {
-    width: 45%;
-    margin: 0 auto;
-    margin-bottom: 2rem;
+.image_form img {
+    width: 100%;
 }
 
-.Product_form input,
-select,
-textarea {
+.image_form h1 {
+    width: 95%;
+    margin-bottom: 3rem;
+    margin-left: 2rem;
+}
+
+.image_form input {
     width: 100%;
     border: 1px solid #99b2bf;
     border-radius: 4px;
@@ -25,10 +27,10 @@ textarea {
     background: #ffffff;
     letter-spacing: 0.1rem;
     font-size: 13px;
-    margin-top: 1.5rem;
+    margin-top: 3rem;
 }
 
-.Product_form .form-button {
+.image_form .form-button {
     width: 100%;
     border-radius: 4px;
     background-color: #5ff7d2;
@@ -38,33 +40,36 @@ textarea {
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.14);
     cursor: pointer;
     font-size: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 3rem;
 }
 
 @media screen and (max-width: 800px) {
-    .Product_form {
+    .image_form {
         width: 95%;
 
     }
 
-    .Product_form h1 {
+    .image_form h1 {
         width: 100%;
 
     }
 }
 
 @media screen and (max-width: 430px) {
-    .Product_form {
+    .image_form {
         width: 95%;
+        margin-top: 4rem;
 
     }
 
-    .Product_form h1 {
-        width: 100%;
+    .image_form h1 {
+        margin: 0;
+        width: 300px;
+        margin-bottom: 3rem;
 
     }
 
-    .Product_form .form-button {
+    .image_form .form-button {
         padding: 1rem 2rem;
     }
 }

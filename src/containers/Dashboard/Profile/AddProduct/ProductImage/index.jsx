@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import ReactLoading from "react-loading";
 import axios from "axios";
 import history from "../../../../../utils/history";
+import "./style.css";
 
 const ProductImageUpload = () => {
   const [uploading, setUploading] = useState(false);
@@ -44,16 +45,17 @@ const ProductImageUpload = () => {
 
   return (
     <>
-      <section>
+      <section className="image_form">
         <h1>SELECT AN IMAGE FOR YOUR PRODUCT</h1>
         <div>
           <img
+            className="upload_image"
             src="https://connectnigeria.com/articles/wp-content/uploads/2016/07/product-launch-2.jpg"
             alt=""
           />
           <div className="change_product_image">
             <input type="file" onChange={fileChangedHandler} required />
-            <button onClick={uploadHandler} className="upload-btn">
+            <button onClick={uploadHandler} className="upload-btn form-button">
               {uploading ? (
                 <ReactLoading
                   type={"spokes"}

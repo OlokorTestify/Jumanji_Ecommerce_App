@@ -105,4 +105,12 @@
         margin-top: -2rem;
         margin-bottom: 0;
     }
+
+    .fa-space {
+        margin-right: 1rem;
+    }
+
+    .fa-space-left {
+        margin-left: 1rem;
+    }
 }

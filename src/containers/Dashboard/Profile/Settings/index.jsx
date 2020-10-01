@@ -24,7 +24,7 @@ const Settings = () => {
             Security
           </p>
         </div>
-        <div>
+        <div className="padding">
           {state === "account" && <Account />}
           {state === "security" && <Security />}
         </div>

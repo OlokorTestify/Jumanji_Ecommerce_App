@@ -107,7 +107,15 @@ const EditProduct = (props) => {
   return (
     <>
       {loading && (
-        <ReactLoading type={"spokes"} color="green" height={30} width={30} />
+        <div className="divloading">
+          <ReactLoading
+            type={"spokes"}
+            color="green"
+            height={30}
+            width={30}
+            className="loading"
+          />
+        </div>
       )}
       {!loading && product && (
         <section className="Edit">

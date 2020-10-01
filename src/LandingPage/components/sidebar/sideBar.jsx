@@ -5,9 +5,6 @@ import history from "../../../utils/history";
 import "./style.css";
 
 const SideBar = () => {
-  const handleClick = () => {
-    history.push("/vehicle");
-  };
   return (
     <Fade left>
       <div className="sideBar">
@@ -15,42 +12,42 @@ const SideBar = () => {
         <div className="checklist">
           <ul>
             <li className="vehicles_link">
-              <Link onClick={handleClick}>
+              <Link to="">
                 <span></span>Vehicles
               </Link>
             </li>
             <li>
-              <Link onClick={handleClick}>
+              <Link to="">
                 <span></span>Properties
               </Link>
             </li>
             <li>
-              <Link onClick={handleClick}>
+              <Link to="">
                 <span></span>Mobile Phones
               </Link>
             </li>
             <li>
-              <Link onClick={handleClick}>
+              <Link to="">
                 <span></span>Electronics
               </Link>
             </li>
             <li>
-              <Link onClick={handleClick}>
+              <Link to="">
                 <span></span>Home Furniture
               </Link>
             </li>
             <li>
-              <Link onClick={handleClick}>
+              <Link to="">
                 <span></span>Appliances
               </Link>
             </li>
             <li>
-              <Link onClick={handleClick}>
+              <Link to="">
                 <span></span>Fashion
               </Link>
             </li>
             <li>
-              <Link onClick={handleClick}>
+              <Link to="">
                 <span></span>Food
               </Link>
             </li>
