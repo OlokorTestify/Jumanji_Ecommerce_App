@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 import ReactLoading from "react-loading";
 import { useSelector, useDispatch } from "react-redux";
+import dayjs from "dayjs";
 import history from "../../utils/history";
 import { getProduct } from "../../store/actions";
 import "./style.css";
@@ -65,7 +65,10 @@ const DashboardLanding = (props) => {
                 <h2>{product.name}</h2>
               </div>
               <div className="statistics">
-                <p className="date">{product.createdAt}</p>
+                <p className="date">
+                  {dayjs(product.createdAt).format("D MMM YYYY")} {"  "}{" "}
+                  {dayjs(product.createdAt).format("h:mm:ss a")}
+                </p>
                 <p>{product.address}</p>
               </div>
               <div>
