@@ -86,8 +86,21 @@
     }
 
     .products .main_product_content .mobile {
-        display: block;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         width: 100%;
+    }
+
+
+    .products .main_product_content .mobile button {
+        background: red;
+        color: white;
+        border-radius: 4px;
+        font-size: 13px;
+        margin-top: 2rem;
+        cursor: pointer;
+        padding: 0.5rem;
     }
 
     .products .main_product_content .mobile .productId {

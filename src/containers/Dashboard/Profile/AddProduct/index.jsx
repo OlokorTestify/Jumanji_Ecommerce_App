@@ -42,7 +42,7 @@ const AddProduct = () => {
       .max(6),
     contact: Yup.string()
       .required("Please input your Phone number")
-      .matches(/^\d+$/, "phone number not valid")
+      .matches(/^\d+$/, "Phone number not valid")
       .min(11),
   });
 
@@ -118,7 +118,7 @@ const AddProduct = () => {
                   />
                 </div>
                 <ErrorMessage
-                  name="phone"
+                  name="contact"
                   component="div"
                   className="error_message"
                 />
@@ -160,7 +160,6 @@ const AddProduct = () => {
           </>
         )}
       </Formik>
-      {loading ? <div>Loading...</div> : null}
     </>
   );
 };

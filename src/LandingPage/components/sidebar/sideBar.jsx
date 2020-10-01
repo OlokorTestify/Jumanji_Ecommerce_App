@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Fade from "react-reveal/Fade";
-import history from "../../../utils/history";
 import "./style.css";
 
 const SideBar = () => {
@@ -12,44 +10,24 @@ const SideBar = () => {
         <div className="checklist">
           <ul>
             <li className="vehicles_link">
-              <Link to="">
-                <span></span>Vehicles
-              </Link>
+              <p>
+                <span></span>Vehicle
+              </p>
             </li>
             <li>
-              <Link to="">
-                <span></span>Properties
-              </Link>
+              <p>
+                <span></span>Tech
+              </p>
             </li>
             <li>
-              <Link to="">
-                <span></span>Mobile Phones
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                <span></span>Electronics
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                <span></span>Home Furniture
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                <span></span>Appliances
-              </Link>
-            </li>
-            <li>
-              <Link to="">
+              <p>
                 <span></span>Fashion
-              </Link>
+              </p>
             </li>
             <li>
-              <Link to="">
-                <span></span>Food
-              </Link>
+              <p>
+                <span></span>Properties
+              </p>
             </li>
           </ul>
         </div>
