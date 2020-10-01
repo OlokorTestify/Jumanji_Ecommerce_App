@@ -163,7 +163,7 @@ export const getAllProducts = () => {
         `${process.env.REACT_APP_SERVER_BASE_URL}/products`,
       );
       dispatch(success(res.data.data.products));
-      return;
+      return res.data.data.products;
     } catch (error) {
       if (error.response) {
         dispatch(failure(error.response.data.message));

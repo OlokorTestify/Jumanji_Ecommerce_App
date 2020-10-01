@@ -11,15 +11,22 @@ import "./style.css";
 
 const Landing = () => {
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
   const { products } = useSelector((state) => state.product);
 
+  const [renderedProducts, setRenderedProducts] = useState([]);
+
+  const [clicked, setClicked] = useState(
+    renderedProducts.map((element) => false),
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     const getProducts = async () => {
       try {
         setLoading(true);
-        await dispatch(getAllProducts());
+        const response = await dispatch(getAllProducts());
+        setRenderedProducts(response);
         setLoading(false);
       } catch (error) {
         if (error.message) {
@@ -40,7 +47,6 @@ const Landing = () => {
     getProducts();
   }, [dispatch]);
 
-  const [clicked, setClicked] = useState(products.map((element) => false));
   const handleChange = (e, index) => {
     const newStatus = [...clicked];
     newStatus[index] = !clicked[index];
@@ -56,8 +62,29 @@ const Landing = () => {
     <section className="main">
       <Fade top>
         <div className="inputMain">
-          <input className="input" type="text" placeholder="Search" />
-          <button className="button">SEARCH</button>
+          <input
+            className="input"
+            type="text"
+            placeholder="Search"
+            onChange={(e) => {
+              setSearch(e.target.value.toLowerCase());
+            }}
+          />
+          <button
+            className="button"
+            onClick={() => {
+              if (search === "") {
+                setRenderedProducts(products);
+              } else {
+                const filteredProducts = products.filter((product) =>
+                  product.name.toLowerCase().includes(search),
+                );
+                setRenderedProducts(filteredProducts);
+              }
+            }}
+          >
+            SEARCH
+          </button>
         </div>
       </Fade>
 
@@ -79,9 +106,9 @@ const Landing = () => {
         </div>
       )}
 
-      {!loading && products && (
+      {!loading && renderedProducts && (
         <section className="product_section">
-          {products.map((item, index) => {
+          {renderedProducts.map((item, index) => {
             return (
               <div
                 className="make3D"
